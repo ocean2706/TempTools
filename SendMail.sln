@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail", "SendMail\SendMail.csproj", "{623E7D57-4B8E-4657-98F0-E990B02FD925}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorService", "WindowsEventCollectorService\WindowsEventCollectorService.csproj", "{C7073820-305A-4959-B015-52F96424BECF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eventcollector", "eventcollector", "{AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorApp", "WindowsEventCollectorApp\WindowsEventCollectorApp.csproj", "{2852C7D9-0E50-467B-B33C-ACC6B3F687CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorConsole", "WindowsEventCollectorConsole\WindowsEventCollectorConsole.csproj", "{9359B050-0B04-44A1-AE0D-A8794A32EEF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorWebConsole", "WindowsEventCollectorWebConsole\WindowsEventCollectorWebConsole.csproj", "{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,31 @@ Global
 		{623E7D57-4B8E-4657-98F0-E990B02FD925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{623E7D57-4B8E-4657-98F0-E990B02FD925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{623E7D57-4B8E-4657-98F0-E990B02FD925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7073820-305A-4959-B015-52F96424BECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7073820-305A-4959-B015-52F96424BECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7073820-305A-4959-B015-52F96424BECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7073820-305A-4959-B015-52F96424BECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9359B050-0B04-44A1-AE0D-A8794A32EEF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9359B050-0B04-44A1-AE0D-A8794A32EEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9359B050-0B04-44A1-AE0D-A8794A32EEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9359B050-0B04-44A1-AE0D-A8794A32EEF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7073820-305A-4959-B015-52F96424BECF} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
+		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
+		{9359B050-0B04-44A1-AE0D-A8794A32EEF0} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
+		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {697E520C-B9F5-4CB7-8D74-51C61B9CB82B}
