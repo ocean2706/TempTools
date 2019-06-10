@@ -1,17 +1,10 @@
 ﻿function SendMailEx ( $SmtpServer, $SmtpServerPort, $Credentials, $Subject, $From, $To, $Body, $Attachment, $EnableSSL ){
 
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $True }
-#$emailSmtpServer = "mail"
-#$emailSmtpServerPort = "587"
-#$emailSmtpUser = "user"
-#$emailSmtpPass = "P@ssw0rd"
- 
-#$emailFrom = "from"
-#$emailTo = "to"
-#$emailcc="CC"
+
  
 $emailMessage = New-Object System.Net.Mail.MailMessage( $From , $To )
-#$emailMessage.cc.add($emailcc)
+
 $emailMessage.Subject = $Subject; 
 $emailMessage.IsBodyHtml = $True;  
 $emailMessage.Body = $Body;
@@ -20,15 +13,16 @@ $SMTPClient = New-Object System.Net.Mail.SmtpClient( $SmtpServer , $SmtpServerPo
 $SMTPClient.Timeout=60000;
 
 if( $EnableSSL){
-$SMTPClient.EnableSsl = $True;
+	$SMTPClient.EnableSsl = $True;
 
 } else {
-$SMTPClient.EnableSsl = $False;
+	$SMTPClient.EnableSsl = $False;
 }
 
-if($credentials){
+if($Credentials){
     $SMTPClient.UseDefaultCredentials=$False;
     $SMTPClient.Credentials = $Credentials;
+	Write-Host "using credentials ";
 }
 try{
     $SMTPClient.Send( $emailMessage );
@@ -38,7 +32,7 @@ try{
 }
 }
 
-$cred=New-Object System.Net.NetworkCredential("george.bungarzescu@gmail.com", "thisisnotmypassword");
-SendMailEx -SmtpServer smtp.gmail.com -SmtpServerPort 587 -Credentials $cred -From george.bungarzescu@gmail.com -To george.bungarzescu@gmail.com -Subject "verificare powershell" -Body "Corp mesaj" -EnableSSL $true
+$cred=New-Object System.Net.NetworkCredential("noreply", "HRSSC1234!@");
+SendMailEx -SmtpServer xch1 -SmtpServerPort 2525 -Credentials $cred -From noreply@telekombs.com -To george_bungarzescu@telekom.ro  -Subject "verificare powershell" -Body "Corp mesaj" -EnableSSL $True
 
 
