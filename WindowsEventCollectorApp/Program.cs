@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CommonEventLib;
 
 namespace WindowsEventCollectorApp
 {
@@ -8,6 +9,7 @@ namespace WindowsEventCollectorApp
     {
         static void Main(string[] args)
         {
+            LogEntry.ReadAll();
         }
     }
 }

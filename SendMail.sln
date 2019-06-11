@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorConsol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsEventCollectorWebConsole", "WindowsEventCollectorWebConsole\WindowsEventCollectorWebConsole.csproj", "{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonEventLib", "CommonEventLib\CommonEventLib.csproj", "{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{2852C7D9-0E50-467B-B33C-ACC6B3F687CD} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
 		{9359B050-0B04-44A1-AE0D-A8794A32EEF0} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
 		{1FBCE0F8-3A74-4D68-B84B-B3F09BB433D7} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
+		{6D9E6E8F-3E28-4583-8CBC-2CEDC8BB4229} = {AF4278DC-5CB8-41B0-B0F6-8D8729EBAF23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {697E520C-B9F5-4CB7-8D74-51C61B9CB82B}
