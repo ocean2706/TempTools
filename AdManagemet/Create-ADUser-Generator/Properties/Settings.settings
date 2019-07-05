@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Create_ADUser_Generator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AdDomain" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">in.telekombs.com</Value>
+    </Setting>
+    <Setting Name="AdAdmin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">george.bungarzescu</Value>
+    </Setting>
+    <Setting Name="AdAdminPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Parola2018</Value>
+    </Setting>
+    <Setting Name="AdDefaultNewUserOU" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

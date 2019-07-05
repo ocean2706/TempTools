@@ -32,7 +32,7 @@ try{
 }
 }
 
-$cred=New-Object System.Net.NetworkCredential("noreply", "HRSSC1234!@");
-SendMailEx -SmtpServer xch1 -SmtpServerPort 2525 -Credentials $cred -From noreply@telekombs.com -To george_bungarzescu@telekom.ro  -Subject "verificare powershell" -Body "Corp mesaj" -EnableSSL $True
+$cred=New-Object System.Net.NetworkCredential("zzzzzz", "@@@@@@@");
+SendMailEx -SmtpServer xch1 -SmtpServerPort 2525 -Credentials $cred -From aaaa@bbb.com -To xxx@yyyy.com  -Subject "verificare powershell" -Body "Corp mesaj" -EnableSSL $True
 
 
