@@ -6,7 +6,7 @@
       <Value Profile="(Default)">in.telekombs.com</Value>
     </Setting>
     <Setting Name="AdAdmin" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">george.bungarzescu</Value>
+      <Value Profile="(Default)">george.bungarzescu@telekombs.com</Value>
     </Setting>
     <Setting Name="AdAdminPass" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Parola2018</Value>

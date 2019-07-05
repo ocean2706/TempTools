@@ -9,7 +9,13 @@ namespace Create_ADUser_Generator
     {
         static void Main(string[] args)
         {
+            CAParser.AdUserModel.ContextDomainController = Properties.Settings.Default.AdDomain;
+            CAParser.AdUserModel.ContextDefaultUserOUContext = "";
+            CAParser.AdUserModel.ContextUser = Properties.Settings.Default.AdAdmin;
+            CAParser.AdUserModel.ContextUserPass = Properties.Settings.Default.AdAdminPass;
+
             CAParser.TestGenerateAdUserListFromRequest();
+            
         }
     }
 }

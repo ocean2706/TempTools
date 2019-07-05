@@ -18,7 +18,9 @@ namespace Create_ADUser_Generator
         }
         public class AdUserModel:BaseAdUserModel
         {
-            public static String ADDomain { get; set; }
+            internal static string ContextUserPass;
+
+            public static String ContextDomainController { get; set; }
             public static String ContextDefaultUserOUContext { get; set; }
             public String AccountName { get;  set; }
             public string Password { get;  set; }
@@ -26,36 +28,51 @@ namespace Create_ADUser_Generator
             public string DisplayName { get; set; }
             public string HomeDirectory { get; private set; }
             public string GivenName { get; private set; }
+            public static string ContextUser { get; internal set; }
 
-            public static Object CreateFromModel(AdUserModel a)
+            public static Object CreateFromModel(AdUserModel b)
             {
-                a = a.AutoCheckAccount();
-                PrincipalContext ctx = null;
+                
+                var a = b.AutoCheckAccount();
+                //PrincipalContext ctx = null;
+                //try
+                //{
+                //     ctx = new PrincipalContext(
+                //                             ContextType.Domain,
+                //                             ContextDomainController,
+                //                             ContextDefaultUserOUContext,
+                //                             ContextUser,
+                //                             ContextUserPass);
+                //}
+                //catch
+                //{
+
+                //}
+                //System.DirectoryServices.AccountManagement.UserPrincipal p = new UserPrincipal(ctx);
+                p.SamAccountName = "test.user";
+                PrincipalSearcher ps = new PrincipalSearcher();
+
+                // Tell the PrincipalSearcher what to search for.
+                ps.QueryFilter = p;
+                var f=ps.FindAll();
+
                 try
                 {
-                     ctx = new PrincipalContext(
-                                             ContextType.Domain,
-                                             ADDomain,
-                                             ContextDefaultUserOUContext,
-                                             a.AccountName,
-                                             a.Password);
+                    p.DisplayName = a.DisplayName;
+                    p.Enabled = true;
+                    p.Surname = a.Surname;
+                    p.Name = a.Name;
+                    if (a.HomeDirectory.Length > 0)
+                    {
+                        p.HomeDirectory = a.HomeDirectory;
+                        p.HomeDrive = a.GetHomeDrive();
+                    }
+                    p.GivenName = a.GivenName;
                 }
                 catch
                 {
 
                 }
-                System.DirectoryServices.AccountManagement.UserPrincipal p = new UserPrincipal(ctx);
-
-                p.DisplayName = a.DisplayName;
-                p.Enabled = true;
-                p.Surname = a.Surname;
-                p.Name = a.Name;
-                if (a.HomeDirectory.Length > 0)
-                {
-                    p.HomeDirectory = a.HomeDirectory;
-                    p.HomeDrive = a.GetHomeDrive();
-                }
-                p.GivenName = a.GivenName;
                 DirectoryEntry de = p.GetUnderlyingObject() as DirectoryEntry;
                // de.InvokeSet("", "");
 
@@ -82,8 +99,17 @@ namespace Create_ADUser_Generator
                  * accountName cu o valoare care nu exista, si denumire User. pastreaza nume prenume la display name
                  * verifica daca exista user cu denumirea initiala.
                  */
-
-                return this;
+                 
+                return new AdUserModel()
+                {
+                    DisplayName="",
+                    AccountName="",
+                    GivenName="",
+                    HomeDirectory="",
+                    Name="",
+                    Password="",
+                    Surname=""
+                };
             }
         }
        public static List<Object> GenerateAdUserListFromRequest(String requestData)

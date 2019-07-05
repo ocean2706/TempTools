@@ -34,7 +34,7 @@ namespace Create_ADUser_Generator.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("george.bungarzescu")]
+        [global::System.Configuration.DefaultSettingValueAttribute("george.bungarzescu@telekombs.com")]
         public string AdAdmin {
             get {
                 return ((string)(this["AdAdmin"]));
