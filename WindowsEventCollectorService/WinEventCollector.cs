@@ -9,15 +9,16 @@ using System.Text;
 
 namespace WindowsEventCollectorService
 {
-    public partial class Service1 : ServiceBase
+    public partial class WinEventCollector : ServiceBase
     {
-        public Service1()
+        public WinEventCollector()
         {
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
+
         }
 
         protected override void OnStop()

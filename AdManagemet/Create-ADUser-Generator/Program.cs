@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -16,7 +17,7 @@ namespace Create_ADUser_Generator
             ADContext.Default = new ADContext();
 
            var s= CAParser.TestGenerateAdUserListFromRequest();
-            
+            File.AppendAllText("generated.log", s.ToString());
         }
     }
 }

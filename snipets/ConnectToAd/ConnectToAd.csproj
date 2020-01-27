@@ -4,12 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7073820-305A-4959-B015-52F96424BECF}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsEventCollectorService</RootNamespace>
-    <AssemblyName>WindowsEventCollectorService</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectGuid>{205A5F03-D7E7-472E-B3F8-FC68158BBE4A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConnectToAd</RootNamespace>
+    <AssemblyName>ConnectToAd</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,28 +39,15 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WinEventCollector.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WinEventCollector.Designer.cs">
-      <DependentUpon>WinEventCollector.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonEventLib\CommonEventLib.csproj">
-      <Project>{6d9e6e8f-3e28-4583-8cbc-2cedc8bb4229}</Project>
-      <Name>CommonEventLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LogManagement\LogListener\LogListener.csproj">
-      <Project>{01acfa0f-25ee-47cc-904a-59590fb42b59}</Project>
-      <Name>LogListener</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

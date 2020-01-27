@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7073820-305A-4959-B015-52F96424BECF}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsEventCollectorService</RootNamespace>
-    <AssemblyName>WindowsEventCollectorService</AssemblyName>
+    <ProjectGuid>{01ACFA0F-25EE-47CC-904A-59590FB42B59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogListener</RootNamespace>
+    <AssemblyName>LogListener</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,34 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SyslogNet.Client">
+      <HintPath>.\SyslogNet.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WinEventCollector.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WinEventCollector.Designer.cs">
-      <DependentUpon>WinEventCollector.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="LogListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommonEventLib\CommonEventLib.csproj">
-      <Project>{6d9e6e8f-3e28-4583-8cbc-2cedc8bb4229}</Project>
-      <Name>CommonEventLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LogManagement\LogListener\LogListener.csproj">
-      <Project>{01acfa0f-25ee-47cc-904a-59590fb42b59}</Project>
-      <Name>LogListener</Name>
-    </ProjectReference>
+    <Compile Include="WindowsEventTranslator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

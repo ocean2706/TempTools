@@ -1,6 +1,6 @@
 ﻿namespace WindowsEventCollectorService
 {
-    partial class Service1
+    partial class WinEventCollector
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+            this.ServiceName = "WinEventCollector";
         }
 
         #endregion

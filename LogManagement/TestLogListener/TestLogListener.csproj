@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7073820-305A-4959-B015-52F96424BECF}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsEventCollectorService</RootNamespace>
-    <AssemblyName>WindowsEventCollectorService</AssemblyName>
+    <ProjectGuid>{AB688452-36AE-490B-90C9-9439749A3975}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestLogListener</RootNamespace>
+    <AssemblyName>TestLogListener</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TestLogListener.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -38,28 +41,29 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WinEventCollector.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WinEventCollector.Designer.cs">
-      <DependentUpon>WinEventCollector.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonEventLib\CommonEventLib.csproj">
-      <Project>{6d9e6e8f-3e28-4583-8cbc-2cedc8bb4229}</Project>
-      <Name>CommonEventLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LogManagement\LogListener\LogListener.csproj">
+    <ProjectReference Include="..\LogListener\LogListener.csproj">
       <Project>{01acfa0f-25ee-47cc-904a-59590fb42b59}</Project>
       <Name>LogListener</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

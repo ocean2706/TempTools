@@ -89,6 +89,7 @@ namespace Create_ADUser_Generator
             public string Office { get; private set; }
             public string Company { get; private set; }
             public List<string> DistrbutionGroups { get; private set; }
+            public List<string> ShareDriveAccess { get; private set; }
 
             public static Object CreateFromModel(AdUserModel b)
             {
@@ -146,16 +147,37 @@ namespace Create_ADUser_Generator
                 Manager = RawManager;
                 HomeDirectory = RawHomeFolder.Contains("1G")?"\\\\srvdlpes\\Users$\\$samaccountname":"";
                 Office = RawOffice;
-                
+                Phone = GetPhone(this.RawPhone);
                 if(HomeDirectory=="" && RawHomeFolder.Contains("G"))
                 {
                     HomeDirectory = "\\\\srvdlpes\\Managers$\\$samaccountname";
                 }
 
                 DistrbutionGroups = ExtractDistributionList(RawDistributionGroup);
-                
+                ShareDriveAccess = ExtractShareDriveAccess(RawShareDriveAccess);
 
 
+            }
+
+            private string GetPhone(string rawPhone)
+            {
+                if( String.IsNullOrEmpty(rawPhone))
+                {
+                    return "";
+                }
+                if (rawPhone.StartsWith("+40"))
+                {
+                    return rawPhone;
+                }
+                else
+                {
+                    return "+40" + rawPhone;
+                }
+            }
+
+            private List<string> ExtractShareDriveAccess(string rawShareDriveAccess)
+            {
+                throw new NotImplementedException();
             }
 
             public static String EscapePowershell(String instring)
@@ -231,7 +253,8 @@ $homepath="""+this.HomeDirectory+@"""
 
                 string cmd = "$bldr=\"`$pass= ConvertTo-SecureString 'HRSSC1234!@' -AsPlainText -Force `r`n \"";
 
-                    cmd +="$bldr+=\"New-ADUser  -SamAccountName $samaccountname -AccountPassword `$pass -ChangePasswordAtLogon `$True -Company '$company' " +
+                    cmd +=@"
+$bldr"+"+=\"New-ADUser  -SamAccountName $samaccountname -AccountPassword `$pass -ChangePasswordAtLogon `$True -Company '$company' " +
                             " -Department '$department' -DisplayName '$displayname' -Enabled `$True " +
                             (String.IsNullOrEmpty(this.GivenName) ? "" : " -GivenName '" + this.GivenName + "'") +
                             (String.IsNullOrEmpty(this.HomeDirectory) ? "" : " -HomeDirectory '$homepath'  -HomeDrive I: ") +
@@ -254,13 +277,14 @@ $bldr+=""`r`n""
                           /**
                            * get newly created user
                            */
-                cmd = "`$usr=Get-ADUser $samaccountName";
+                cmd = "`$usr=Get-ADUser $samaccountName `r`n";
                 bldr.AppendLine("$bldr+=\"" + cmd + "\"");
+                cmd = "";
                 List<String> ldl = new List<String>() { "All Users", "DTBS_ALL_USERS" };
                 ldl.AddRange(DistrbutionGroups);
                 ldl.ForEach((l) =>
                 {
-                    cmd += "Add-ADGroupMember -Identity '"+l+"' -Members '$samaccountname'";
+                    cmd += "Add-ADGroupMember -Identity '"+l+"' -Members '$samaccountname' `r`n";
                     bldr.AppendLine("$bldr+=\""+cmd+"\"");
                     cmd = ""; //cleanup
                 });
@@ -284,7 +308,7 @@ $bldr+=""`r`n""
             Dictionary<String, String> d = new Dictionary<string, string> {
                 { "L(.*)us(.*)", "LimitedUser" },{"Nume","Name" },{"Pre","Surname"},
                 {"Functie|Title", "Title" },{"Dep(.*)ment","Department" },{"Ma(.*)ger","Manager" },
-                {"Distr(.*)rup","DistributionGroup" },{"Ho(.*)er","HomeFolder"},{"Sh(.*)ive","ShareDriveAccess"},{"Te(.*)","Phone" },{"Mobil","Mobile"},
+                {"Dis(.*)roup","DistributionGroup" },{"Ho(.*)er","HomeFolder"},{"Sh(.*)ive","ShareDriveAccess"},{"Te(.*)","Phone" },{"Mobil","Mobile"},
                 {"Loca(.*)|Off(.*)","Office" },{"Print","Printers"}
             };
 
